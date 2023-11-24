@@ -14,7 +14,7 @@
         }
 
         header {
-            background-color: #036539;
+            background-color: #006b3b;
             color: #fff;
             text-align: center;
             padding: 1rem;
@@ -27,7 +27,7 @@
 
         nav a {
             text-decoration: none;
-            color: green;
+            color: #007BFF;
             margin: 0 1rem;
             font-weight: bold;
         }
@@ -36,8 +36,30 @@
             padding: 2rem;
         }
 
-        section {
-            margin-bottom: 2rem;
+        .welcome-section {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .card {
+            width: 30%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #007BFF;
         }
 
         footer {
@@ -55,27 +77,42 @@
     </header>
 
     <nav>
-        <a href="#">Inicio</a>
         <a href="#cotizaciones">Cotizaciones</a>
         <a href="#servicios">Servicios</a>
         <a href="#contacto">Contacto</a>
+        <a href="#Iniciar seccion/Login">Iniciar sesion/Login</a>
     </nav>
 
     <main>
+        <hr>
+        <section class="welcome-section">
+            <h2>Bienvenido a nuestra Casa de Cambio</h2>
+            <p>Ofrecemos servicios de cambio de divisas con tasas competitivas.</p>
+        </section>
+        <hr>
+<center>
         <section id="cotizaciones">
             <h2>Cotizaciones</h2>
-            <!-- Aquí puedes agregar información sobre las cotizaciones -->
+            <p>Te cotizamos con el tipo de efectivo que desees</p>
         </section>
+    </center>
+        
+       
 
-        <section id="servicios">
-            <h2>Servicios</h2>
-            <!-- Aquí puedes agregar información sobre los servicios que ofreces -->
-        </section>
-
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <!-- Aquí puedes agregar un formulario de contacto o información de contacto -->
-        </section>
+        <div class="card-container">
+            <div class="card">
+                <h3>Cambio de efectivo</h3>
+                <p>Cambio de dinero por peso, dolar, euro.</p>
+            </div>
+            <div class="card">
+                <h3>Compra</h3>
+                <p>Compra de objetos que no necesites.</p>
+            </div>
+            <div class="card">
+                <h3>Venta</h3>
+                <p>venta de objetos en buen estado.</p>
+            </div>
+        </div>
     </main>
 
     <footer>
