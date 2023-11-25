@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa de Cambio</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        nav {
+            background-color: #f8f9fa;
+            padding: 0.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #007BFF;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .welcome-section {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .card {
+            width: 30%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #007BFF;
+        }
+
+        .service-section {
+            margin-top: 2rem;
+        }
+
+        .service {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon {
+            margin-right: 1rem;
+        }
+
+        .exchange-rates {
+            margin-top: 2rem;
+        }
+
+        .exchange-rate {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Casa de Cambio</h1>
+    </header>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#cotizaciones">Cotizaciones</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <main>
+        <section class="welcome-section">
+            <h2>Bienvenido a nuestra Casa de Cambio</h2>
+            <p>Ofrecemos servicios de cambio de divisas con tasas competitivas.</p>
+        </section>
+
+        <section class="exchange-rates" id="cotizaciones">
+            <h2>Cotizaciones</h2>
+
+            <div class="exchange-rate">
+                <span>USD a EUR</span>
+                <span>1.15</span>
+            </div>
+
+            <div class="exchange-rate">
+                <span>USD a GBP</span>
+                <span>0.85</span>
+            </div>
+
+            <div class="exchange-rate">
+                <span>USD a JPY</span>
+                <span>110.25</span>
+            </div>
+
+            <!-- Agrega más tasas de cambio según sea necesario -->
+
+        </section>
+
+        <section class="service-section" id="servicios">
+            <h2>Servicios</h2>
+
+            <div class="service">
+                <div class="service-icon">🌍</div>
+                <div class="service-info">
+                    <h3>Cambio de Divisas</h3>
+                    <p>Ofrecemos tasas competitivas para cambiar diversas monedas extranjeras.</p>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">💵</div>
+                <div class="service-info">
+                    <h3>Compra y Venta</h3>
+                    <p>Facilitamos la compra y venta de monedas extranjeras para tus necesidades financieras.</p>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🔄</div>
+                <div class="service-info">
+                    <h3>Transferencias Internacionales</h3>
+                    <p>Realizamos transferencias internacionales de fondos de manera segura y eficiente.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <!-- Aquí puedes agregar un formulario de contacto o información de contacto -->
+        </section>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>Servicio 1</h3>
+                <p>Descripción del servicio 1.</p>
+            </div>
+            <div class="card">
+                <h3>Servicio 2</h3>
+                <p>Descripción del servicio 2.</p>
+            </div>
+            <div class="card">
+                <h3>Servicio 3</h3>
+                <p>Descripción del servicio 3.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Casa de Cambio. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
