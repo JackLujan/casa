@@ -8,7 +8,7 @@ $queryusuario = mysqli_query($conn,"SELECT * FROM usuarios WHERE Nombre='$usu' a
 $nr = mysqli_num_rows($queryusuario);
 if ($nr == 1)
 {
-echo "<script> alert('Usuario logueado.');window.location='servicios.html' </script>";
+echo "<script> alert('Usuario logueado.');window.location='servicios.php' </script>";
 }
 else
 {
