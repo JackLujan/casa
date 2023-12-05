@@ -52,13 +52,12 @@
         }
         nav a {
             text-decoration: none;
-            color: #b4ff9a;
+            color: #007BFF;
             margin: 0 1rem;
-            font-size: 20px;
             font-weight: bold;
         }
         nav{
-            background-color: #2ecc71;
+            background-color: #f8f9fa;
         }
         .container a{
             text-decoration: none;
@@ -79,16 +78,20 @@
     </nav>
 
     <div class="container">
+        <h1 style="color:#2ecc71">Para seguir adelante, favor de registrarse o iniciar sesion</h1>
         <h2 style="color: #2ecc71;">Formulario de Registro - Casa de Cambio</h2>
-        <form action="#" method="post">
+        <form action="registrar.php" method="post">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
 
             <label for="correo">Correo electrónico:</label>
             <input type="email" id="correo" name="correo" required>
 
-            <label for="contra">Contraseña</label>
+            <label for="contra">Contraseña:</label>
             <input type="password" id="contra" name="conte" required>
+
+            <label for="telef">Telefono:</label>
+            <input type="text" name="tele" id="tele" required>
 
             <button type="submit">Registrarse</button>
             <br>
