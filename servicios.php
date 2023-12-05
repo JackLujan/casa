@@ -169,11 +169,23 @@
             </div>
         </div>
     </main>
+    <center>
+        <iframe
+        width="600"
+        height="450"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3601.448609579463!2d-106.42889958497018!3d31.70530765669149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e744bbe74ac667%3A0x27166e8dab4f1be4!2sCl.%20Jos%C3%A9%20de%20Iturrigaray%206800%2C%20Campestre%2C%2032694%20Ju%C3%A1rez%2C%20Chih.!5e0!3m2!1ses!2ses!4v1640854378795!5m2!1ses!2ses"
+    ></iframe>
 
+    <p>O puedes abrir el enlace directamente en <a href="https://maps.app.goo.gl/4VKSss4T2bMHqFRw9" target="_blank">Google Maps</a>.</p>
+
+
+    </center>
     <footer>
         <p>&copy; 2023 Casa de Cambio. Todos los derechos reservados.</p>
     </footer>
 
 </body>
 </html>
-
