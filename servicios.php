@@ -82,7 +82,7 @@
             text-align: center;
             padding: 1rem;
         }
-        input{
+        #consultar{
             width: 500px;
             height: 100px;
             font-family: Arial, Helvetica, sans-serif;
@@ -98,10 +98,12 @@
     </header>
 
     <nav>
-        <a href="index.html">Cerrar sesion</a>
+        <form action="logout.php"> 
+            <input type="submit" name="cerrar" id="cerrar" value="Cerrar sesion">
+        </from>
         <a href="Cotizaciones.php">Cotizaciones</a>
         <a href="contactanos.html">Contacto</a>
-        <a href="InicioSesion.html">InicioSesion/Login</a>
+        <a href="InicioSesion.php">InicioSesion/Login</a>
     </nav>
 
     <main>
@@ -114,7 +116,7 @@
             <h2>Cotizaciones</h2>
             <p>Te cotizamos con el tipo de efectivo que desees</p>
             <form action="Cotizaciones.php" method="post">
-                <input type="submit" name="consultar" value="Ver Cotizaciones">
+                <input type="submit" name="consultar" id="consultar" value="Ver Cotizaciones">
             </form>
         </section>
 
