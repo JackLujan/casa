@@ -82,6 +82,13 @@
             text-align: center;
             padding: 1rem;
         }
+        input{
+            width: 500px;
+            height: 100px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+
+        }
     </style>
 </head>
 <body>
@@ -91,8 +98,8 @@
     </header>
 
     <nav>
-        <a href="index.html">Inicio</a>
-        <a href="Cotizaciones.html">Cotizaciones</a>
+        <a href="index.html">Cerrar sesion</a>
+        <a href="Cotizaciones.php">Cotizaciones</a>
         <a href="contactanos.html">Contacto</a>
         <a href="InicioSesion.html">InicioSesion/Login</a>
     </nav>
@@ -105,7 +112,10 @@
 
         <section id="cotizaciones">
             <h2>Cotizaciones</h2>
-            <!-- Aquí puedes agregar información sobre las cotizaciones -->
+            <p>Te cotizamos con el tipo de efectivo que desees</p>
+            <form action="Cotizaciones.php" method="post">
+                <input type="submit" name="consultar" value="Ver Cotizaciones">
+            </form>
         </section>
 
         <section class="service-section" id="servicios">
