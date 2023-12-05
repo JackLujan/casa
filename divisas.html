@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de Divisas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .converter-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .converter-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input, select, button {
+            margin-bottom: 16px;
+            padding: 8px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            font-weight: bold;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter-container">
+        <h1>Cambio de Divisas</h1>
+        <div class="converter-form">
+            <label for="amount">Monto en MXN:</label>
+            <input type="number" id="amount" placeholder="Ingrese el monto en MXN">
+
+            <label for="currency">Seleccione la moneda:</label>
+            <select id="currency">
+                <option value="eur">Euro (EUR)</option>
+                <option value="gbp">Libra esterlina (GBP)</option>
+                <option value="jpy">Yen japonés (JPY)</option>
+                <option value="cad">Dólar canadiense (CAD)</option>
+                <option value="chf">Franco suizo (CHF)</option>
+                <option value="aud">Dólar australiano (AUD)</option>
+                <option value="cny">Yuan chino (CNY)</option>
+                <option value="rub">Rublo ruso (RUB)</option>
+                <option value="inr">Rupia india (INR)</option>
+                <option value="usd">Dólar estadounidense (USD)</option>
+                <!-- Agrega más opciones aquí según sea necesario -->
+            </select>
+
+            <label for="nombreCliente">Nombre del Cliente:</label>
+            <input type="text" id="nombreCliente" placeholder="Ingrese el nombre del cliente">
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" placeholder="Ingrese la dirección del cliente">
+
+            <button onclick="convertCurrency()">Convertir</button>
+
+            <p id="result">Resultado:</p>
+
+            <!-- Botones adicionales -->
+            <button onclick="goToHome()">Regresar al Inicio</button>
+            <button onclick="payWithCard()">Pagar con Tarjeta</button>
+            <button onclick="payInPerson()">Pagar en Persona</button>
+        </div>
+    </div>
+
+    <script>
+        async function convertCurrency() {
+            const amount = document.getElementById("amount").value;
+            const currency = document.getElementById("currency").value;
+            const nombreCliente = document.getElementById("nombreCliente").value;
+            const direccion = document.getElementById("direccion").value;
+
+            // Tasas de cambio ficticias (para simplificar)
+            const exchangeRates = {
+                eur: 2.22,  // 1 MXN = 2.22 EUR
+                gbp: 2.56,  // 1 MXN = 2.56 GBP
+                jpy: 0.0187, // 1 MXN = 0.0187 JPY
+                cad: 1.54,  // 1 MXN = 1.54 CAD
+                chf: 2.17,  // 1 MXN = 2.17 CHF
+                aud: 1.47,  // 1 MXN = 1.47 AUD
+                cny: 0.31,  // 1 MXN = 0.31 CNY
+                rub: 0.027, // 1 MXN = 0.027 RUB
+                inr: 0.0268,// 1 MXN = 0.0268 INR
+                usd: 2.00   // 1 MXN = 2.00 USD
+                // Agrega más tasas de cambio según sea necesario
+            };
+
+            try {
+                const rate = exchangeRates[currency.toLowerCase()];
+                if (!rate) {
+                    throw new Error('Tasa de cambio no disponible');
+                }
+
+                const result = amount * rate;
+
+                const currentDate = new Date();
+                const formattedDate = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
+
+                document.getElementById("result").innerText = `Resultado: ${amount} MXN = ${result.toFixed(2)} ${currency.toUpperCase()} (Fecha: ${formattedDate})`;
+
+                // Guardar información del usuario y conversión
+                const conversionInfo = {
+                    montoCambiar: amount,
+                    convertido: result.toFixed(2),
+                    fechaConversion: formattedDate,
+                    fechaRecogido: "",  // Puedes llenar esto según sea necesario
+                    nombreCliente,
+                    direccion
+                };
+
+                console.log('Información de conversión:', conversionInfo);
+
+            } catch (error) {
+                console.error('Error al realizar la conversión:', error);
+                document.getElementById("result").innerText = 'Error al realizar la conversión. Por favor, intenta nuevamente.';
+            }
+        }
+
+        function goToHome() {
+            // Puedes redirigir al usuario al inicio o realizar otras acciones según sea necesario
+            alert('Redirigiendo al Inicio');
+        }
+
+        function payWithCard() {
+            // Puedes implementar la lógica para el pago con tarjeta aquí
+            alert('Realizando pago con tarjeta');
+        }
+
+        function payInPerson() {
+            // Puedes implementar la lógica para el pago en persona aquí
+            alert('Realizando pago en persona');
+        }
+    </script>
+</body>
+</html>
