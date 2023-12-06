@@ -109,6 +109,7 @@ if(!isset($_SESSION['access_token']))
             box-sizing: border-box;
             border: 1px solid #2ecc71; /* Verde oscuro */
             border-radius: 4px;
+            border-radius:10px;
         }
         button {
             background-color: #2ecc71; /* Verde oscuro */
@@ -117,23 +118,36 @@ if(!isset($_SESSION['access_token']))
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            border-radius:10px;
         }
         button:hover {
             background-color: #27ae60; /* Verde más claro al pasar el mouse */
         }
+        nav {
+            background-color: #b4ff9a;
+            padding: 0.5rem;
+        }
+
         nav a {
             text-decoration: none;
             color: #007BFF;
             margin: 0 1rem;
             font-weight: bold;
         }
-        nav{
-            background-color: #f8f9fa;
+        nav button{
+            height: 50px;
+            width: 150px;
+            font-size:12px;
+            background-color: #258d19;
+            color: #fff;
+            border:none;
+            border-radius:10px;
         }
-        .container a{
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
+        nav button:hover{
+            background-color: #4ea93b;
+        }
+        h1{
+            font-size:20px;
         }
 
     </style>
@@ -145,7 +159,7 @@ if(!isset($_SESSION['access_token']))
     </header>
 
     <nav>
-        <a href="index.html">Regresar a pagina principal</a>
+        <a href="index.html"><button>Regresar a pagina principal</button></a>
     </nav>
 
     <div class="container">
