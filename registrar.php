@@ -24,5 +24,4 @@ else
 {
 echo "<script> alert('Error al registrar! Intentar de nuevo:');window.location= 'InicioSesion.html' </script>";
 }
-/*TDM34*/
 ?>
