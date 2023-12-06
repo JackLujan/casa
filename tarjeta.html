@@ -33,6 +33,7 @@
         input, button {
             margin-bottom: 16px;
             padding: 8px;
+            border-radius:10px;
         }
 
         button {
@@ -40,6 +41,7 @@
             color: #fff;
             border: none;
             cursor: pointer;
+            border-radius:10px;
         }
 
         button:hover {
@@ -50,62 +52,140 @@
             font-weight: bold;
             margin-top: 16px;
         }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #006b3b;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        nav {
+            background-color: #b4ff9a;
+            padding: 0.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #007BFF;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        nav button{
+            height: 50px;
+            width: 150px;
+            background-color: #258d19;
+            color: #fff;
+            border:none;
+            border-radius:10px;
+        }
+        nav button:hover{
+            background-color: #4ea93b;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .welcome-section {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .card {
+            width: 30%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #007BFF;
+        }
+
+        .service-section {
+            margin-top: 2rem;
+        }
+
+        .service {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon {
+            margin-right: 1rem;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        #consultar{
+            width: 500px;
+            height: 100px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+
+        }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Casa de Cambio</h1>
+    </header>
+
+    <nav>
+        <a href="divisas.html"><button>Regresar</button></a>
+        <a href="Cotizaciones.html"><button>Cotizaciones</button></a>
+        <a href="servicios.php"><button>Servicios</button></a>
+        <a href="contactanos.html"><button>Contacto</button></a>
+    </nav>
     <div class="card-registration-container">
         <h1>Registro de Tarjeta</h1>
-        <div class="card-registration-form">
+        <form class="card-registration-form" action="registrarTar.php" method="post"> 
+            
+            <label for="Tipo">Seleccione tipo de tarjeta:</label>
+            <select name="tarjeta" id="tarj">
+                <option value="MasterCard">MasterCard</option>
+                <option value="Visa">VISA</option>
+                <option value="PayPal">PayPal</option>
+            </select>
+
             <label for="cardNumber">Número de Tarjeta:</label>
-            <input type="text" id="cardNumber" placeholder="Ingrese el número de tarjeta">
+            <input type="text" name="Num" id="cardNumber" placeholder="Ingrese el número de tarjeta" minlength="16" maxlength="16">
 
             <label for="cardHolder">Titular de la Tarjeta:</label>
-            <input type="text" id="cardHolder" placeholder="Ingrese el nombre del titular">
+            <input type="text" name="tit" id="cardHolder" placeholder="Ingrese el nombre del titular">
 
             <label for="expiryDate">Fecha de Vencimiento:</label>
-            <input type="text" id="expiryDate" placeholder="MM/YY">
+            <input type="text" name="expir" id="expiryDate" placeholder="MM/YY">
 
             <label for="cvv">CVV:</label>
-            <input type="text" id="cvv" placeholder="Ingrese el CVV">
+            <input type="text" name="cvv" id="cvv" placeholder="Ingrese el CVV" maxlength="3">
 
-            <button onclick="registerCard()">Registrar Tarjeta</button>
+            <button type="submit">Registrar tarjeta</button>
 
-            <p id="cardResult">Resultado:</p>
-        </div>
+        </form>
     </div>
 
-    <script>
-        function registerCard() {
-            const cardNumber = document.getElementById("cardNumber").value;
-            const cardHolder = document.getElementById("cardHolder").value;
-            const expiryDate = document.getElementById("expiryDate").value;
-            const cvv = document.getElementById("cvv").value;
-
-            // Validaciones básicas (puedes agregar validaciones más robustas según tus necesidades)
-
-            if (cardNumber.length !== 16 || isNaN(cardNumber)) {
-                document.getElementById("cardResult").innerText = 'Número de tarjeta inválido';
-                return;
-            }
-
-            if (cardHolder.trim() === "") {
-                document.getElementById("cardResult").innerText = 'Por favor, ingrese el nombre del titular de la tarjeta';
-                return;
-            }
-
-            if (!/^\d{2}\/\d{2}$/.test(expiryDate)) {
-                document.getElementById("cardResult").innerText = 'Fecha de vencimiento inválida';
-                return;
-            }
-
-            if (!/^\d{3}$/.test(cvv)) {
-                document.getElementById("cardResult").innerText = 'CVV inválido';
-                return;
-            }
-
-            // Simulación de registro exitoso
-            document.getElementById("cardResult").innerText = 'Tarjeta registrada con éxito';
-        }
-    </script>
 </body>
 </html>
