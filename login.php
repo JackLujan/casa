@@ -14,5 +14,4 @@ else
 {
 echo "<script> alert('Usuario, contraseña o correo incorrecto, intente de nuevo');window.location= 'login.html' </script>";
 }
-/*TDM34*/
 ?>
