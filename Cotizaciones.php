@@ -24,7 +24,7 @@
         }
 
         nav {
-            background-color: #f8f9fa;
+            background-color: #b4ff9a;
             padding: 0.5rem;
         }
 
@@ -34,6 +34,30 @@
             margin: 0 1rem;
             font-weight: bold;
         }
+        nav button{
+            height: 50px;
+            width: 150px;
+            background-color: #258d19;
+            color: #fff;
+            border:none;
+            margin-top:5px;
+            border-radius:10px;
+        }
+        nav button:hover{
+            background-color: #4ea93b;
+        }
+        nav input{
+            height: 50px;
+            width: 150px;
+            background-color: #258d19;
+            color: #fff;
+            border:none;
+            margin-top:5px;
+            border-radius:10px;
+        }
+        nav input:hover{
+            background-color: #4ea93b;
+        }
 
         main {
             padding: 2rem;
@@ -41,7 +65,10 @@
 
         .welcome-section {
             text-align: center;
-            padding: 2rem;
+            margin-top: 2rem;
+            border: 2px solid #92e27a;
+            box-shadow: 0 0 10px rgba(0, 0, 0 , 0.3);
+            border-radius: 10px
         }
 
         .card-container {
@@ -80,7 +107,11 @@
         }
 
         .exchange-rates {
+            text-align: center;
             margin-top: 2rem;
+            border: 2px solid #92e27a;
+            box-shadow: 0 0 10px rgba(0, 0, 0 , 0.3);
+            border-radius: 10px
         }
 
         .exchange-rate {
@@ -105,10 +136,11 @@
     </header>
 
     <nav>
-        <a href="index.html">Cerrar sesion</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="contactanos.html">Contacto</a>
-        <a href="InicioSesion.html">InicioSesion/Login</a>
+        <form action="logout.php"> 
+            <input type="submit" name="cerrar" id="cerrar" value="Cerrar sesion">
+        </form>
+        <a href="servicios.php"><button>Servicios</button></a>
+        <a href="contactanos.html"><button>Contacto</button></a>
     </nav>
 
     <main>
@@ -118,17 +150,45 @@
         </section>
 
         <section class="exchange-rates" id="cotizaciones">
-            <?php
-            if(isset($_POST['consultar'])){
-                $archivo = fopen("Money.csv","r");
-                while(($datos = fgetcsv($archivo, 1000, ",")) !== false){
-                    echo "<p><strong>Pesos: </strong> " . $datos[0] . "</p>";
-                    echo "<p><strong>Conversion: </strong> " . $datos[1] . "</p>";
-                    echo "<hr>";
-                }
-                fclose($archivo);
-            }
-            ?>
+            <p><strong>Pesos: </strong>10 MXN</p>
+            <p><strong>Conversion: </strong>0.50 USD</p>
+            <hr>
+
+            <p><strong>Pesos: </strong>10 MXN</p>
+            <p><strong>Conversion: </strong>0.45 EUR</p>
+            <hr>
+
+            <p><strong>Pesos: </strong>10 MXN</p>
+            <p><strong>Conversion: </strong>0.39 GBP</p>
+            <hr>
+
+            <p><strong>Pesos: </strong>10 MXN</p>
+            <p><strong>Conversion: </strong>0.65 CAD</p>
+            <hr>
+
+            <p><strong>Pesos: </strong>10 MXN</p>
+            <p><strong>Conversion: </strong>53.53 JPY</p>
+            <hr>
+
+            <p><strong>Pesos: </strong>10 MXN</p>
+            <p><strong>Conversion: </strong>0.46 CHF</p>
+            <hr>
+
+            <p><strong>Pesos: </strong>10 MXN</p>
+            <p><strong>Conversion: </strong>0.68 AUD</p>
+            <hr>
+
+            <p><strong>Pesos: </strong>10 MXN</p>
+            <p><strong>Conversion: </strong>3.23 CNY</p>
+            <hr>
+
+            <p><strong>Pesos: </strong>10 MXN</p>
+            <p><strong>Conversion: </strong>37.05 RUB</p>
+            <hr>
+
+            <p><strong>Pesos: </strong>10 MXN</p>
+            <p><strong>Conversion: </strong>37.34</p>
+            <hr>
 
             <!-- Agrega más tasas de cambio según sea necesario -->
 
