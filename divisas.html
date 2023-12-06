@@ -10,6 +10,107 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        p{
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #006b3b;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        nav {
+            background-color: #b4ff9a;
+            padding: 0.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #007BFF;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        nav button{
+            height: 50px;
+            width: 150px;
+            background-color: #258d19;
+            color: #fff;
+            border:none;
+            border-radius:10px;
+        }
+        nav button:hover{
+            background-color: #4ea93b;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .welcome-section {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .card {
+            width: 30%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #007BFF;
+        }
+
+        .service-section {
+            margin-top: 2rem;
+        }
+
+        .service {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon {
+            margin-right: 1rem;
+        }
+
+        .exchange-rates {
+            margin-top: 2rem;
+        }
+
+        .exchange-rate {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f4;
         }
 
@@ -34,6 +135,7 @@
         input, select, button {
             margin-bottom: 16px;
             padding: 8px;
+            border-radius:10px;
         }
 
         button {
@@ -41,6 +143,7 @@
             color: #fff;
             border: none;
             cursor: pointer;
+            border-radius:10px;
         }
 
         button:hover {
@@ -54,11 +157,21 @@
     </style>
 </head>
 <body>
+    <header>
+        <h1>Casa de Cambio</h1>
+    </header>
+
+    <nav>
+        <a href="Cotizaciones.html"><button>Cotizaciones</button></a>
+        <a href="servicios.php"><button>Servicios</button></a>
+        <a href="contactanos.html"><button>Contacto</button></a>
+    </nav>
+
     <div class="converter-container">
         <h1>Cambio de Divisas</h1>
         <div class="converter-form">
             <label for="amount">Monto en MXN:</label>
-            <input type="number" id="amount" placeholder="Ingrese el monto en MXN">
+            <input type="number" name="amount" id="amount" placeholder="Ingrese el monto en MXN">
 
             <label for="currency">Seleccione la moneda:</label>
             <select id="currency">
@@ -76,19 +189,18 @@
             </select>
 
             <label for="nombreCliente">Nombre del Cliente:</label>
-            <input type="text" id="nombreCliente" placeholder="Ingrese el nombre del cliente">
+            <input type="text" name="usu" id="nombreCliente" placeholder="Ingrese el nombre del cliente">
 
             <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" placeholder="Ingrese la dirección del cliente">
+            <input type="text" name="dir" id="direccion" placeholder="Ingrese la dirección del cliente">
 
             <button onclick="convertCurrency()">Convertir</button>
 
             <p id="result">Resultado:</p>
 
             <!-- Botones adicionales -->
-            <button onclick="goToHome()">Regresar al Inicio</button>
             <button onclick="payWithCard()">Pagar con Tarjeta</button>
-            <button onclick="payInPerson()">Pagar en Persona</button>
+                <button type="submit" onclick="payInPerson()">Pagar en Persona</button>
         </div>
     </div>
 
@@ -99,19 +211,18 @@
             const nombreCliente = document.getElementById("nombreCliente").value;
             const direccion = document.getElementById("direccion").value;
 
-            // Tasas de cambio ficticias (para simplificar)
+     
             const exchangeRates = {
-                eur: 2.22,  // 1 MXN = 2.22 EUR
-                gbp: 2.56,  // 1 MXN = 2.56 GBP
-                jpy: 0.0187, // 1 MXN = 0.0187 JPY
-                cad: 1.54,  // 1 MXN = 1.54 CAD
-                chf: 2.17,  // 1 MXN = 2.17 CHF
-                aud: 1.47,  // 1 MXN = 1.47 AUD
-                cny: 0.31,  // 1 MXN = 0.31 CNY
-                rub: 0.027, // 1 MXN = 0.027 RUB
-                inr: 0.0268,// 1 MXN = 0.0268 INR
-                usd: 2.00   // 1 MXN = 2.00 USD
-                // Agrega más tasas de cambio según sea necesario
+                eur: 0.053,  
+                gbp: 0.046, 
+                jpy: 8.46, 
+                cad: 0.078,  
+                chf: 0.050, 
+                aud: 0.088,  
+                cny: 0.41,  
+                rub: 5.19, 
+                inr: 4.80,
+                usd: 0.058  
             };
 
             try {
@@ -132,12 +243,13 @@
                     montoCambiar: amount,
                     convertido: result.toFixed(2),
                     fechaConversion: formattedDate,
-                    fechaRecogido: "",  // Puedes llenar esto según sea necesario
+                    fechaRecogido: "",  
                     nombreCliente,
                     direccion
                 };
 
                 console.log('Información de conversión:', conversionInfo);
+
 
             } catch (error) {
                 console.error('Error al realizar la conversión:', error);
@@ -145,19 +257,62 @@
             }
         }
 
-        function goToHome() {
-            // Puedes redirigir al usuario al inicio o realizar otras acciones según sea necesario
-            alert('Redirigiendo al Inicio');
-        }
+
 
         function payWithCard() {
-            // Puedes implementar la lógica para el pago con tarjeta aquí
-            alert('Realizando pago con tarjeta');
+            window.location='tarjeta.html';
         }
 
         function payInPerson() {
-            // Puedes implementar la lógica para el pago en persona aquí
-            alert('Realizando pago en persona');
+          // Obtener los datos del formulario
+    const amount = document.getElementById("amount").value;
+    const currency = document.getElementById("currency").value;
+    const nombreCliente = document.getElementById("nombreCliente").value;
+    const direccion = document.getElementById("direccion").value;
+
+    // Calcular el monto convertido (como en la función convertCurrency())
+    const exchangeRates = {
+        eur: 0.053,
+        gbp: 0.046,
+        jpy: 8.46,
+        cad: 0.078,
+        chf: 0.050,
+        aud: 0.088,
+        cny: 0.41,
+        rub: 5.19,
+        inr: 4.80,
+        usd: 0.058
+    };
+
+    const rate = exchangeRates[currency.toLowerCase()];
+    const result = amount * rate;
+
+
+    const conversionInfo = {
+        montoCambiar: amount,
+        convertido: result.toFixed(2),
+        fechaRecogido: "",  
+        nombreCliente,
+        direccion
+    };
+
+
+    fetch('registrarDiv.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(conversionInfo),
+    })
+    .then(response => response.text())
+    .then(responseData => {
+        console.log(responseData);
+        alert('Datos guardados exitosamente en la base de datos');
+    })
+    .catch(error => {
+        console.error('Error al enviar los datos al servidor:', error);
+        alert('Error al enviar los datos al servidor. Por favor, intenta nuevamente.');
+    });
         }
     </script>
 </body>
